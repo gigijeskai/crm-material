@@ -1,10 +1,21 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { MatGridListModule } from '@angular/material/grid-list';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { BrowserModule } from '@angular/platform-browser';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [],
-  imports: [CommonModule],
-  exports: [MatGridListModule],
+
+  exports: [
+    BrowserModule,
+    BrowserAnimationsModule,
+    HttpClientModule,
+    MatSidenavModule,
+    MatToolbarModule,
+    MatIconModule,
+  ],
 })
-export class MaterialmoduleModule {}
+export class MaterialModule {}

@@ -11,9 +11,11 @@ import { HomeComponent } from './pages/home/home.component';
 import { ClientsComponent } from './pages/clients/clients.component';
 import { InvoicesComponent } from './pages/invoices/invoices.component';
 import { UsersComponent } from './pages/users/users.component';
+import { LoginComponent } from './auth/login/login.component';
+import { RegisterComponent } from './auth/register/register.component';
 
 @NgModule({
-  declarations: [AppComponent, SidenavComponent, NavbarComponent, HomeComponent, ClientsComponent, InvoicesComponent, UsersComponent],
+  declarations: [AppComponent, SidenavComponent, NavbarComponent, HomeComponent, ClientsComponent, InvoicesComponent, UsersComponent, LoginComponent, RegisterComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

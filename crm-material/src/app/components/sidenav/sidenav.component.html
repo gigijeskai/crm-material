@@ -6,9 +6,20 @@
 
       <div class="example-sidenav-content">
         <mat-list role="list">
-          <mat-list-item role="listitem">Item 1</mat-list-item>
-          <mat-list-item role="listitem">Item 2</mat-list-item>
-          <mat-list-item role="listitem">Item 3</mat-list-item>
+          <mat-list-item role="listitem">
+            <a href="" [routerLink]="['/home']"> Home</a></mat-list-item
+          >
+          <mat-list-item role="listitem">
+            <a href="" [routerLink]="['/clients']"> Clients </a></mat-list-item
+          >
+          <mat-list-item role="listitem">
+            <a href="" [routerLink]="['/invoices']">
+              Invoices
+            </a></mat-list-item
+          >
+          <mat-list-item role="listitem">
+            <a href="" [routerLink]="['/users']"> Users </a></mat-list-item
+          >
         </mat-list>
       </div>
     </mat-drawer-container>

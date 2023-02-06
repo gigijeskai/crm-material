@@ -13,14 +13,27 @@ import { InvoicesComponent } from './pages/invoices/invoices.component';
 import { UsersComponent } from './pages/users/users.component';
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [AppComponent, SidenavComponent, NavbarComponent, HomeComponent, ClientsComponent, InvoicesComponent, UsersComponent, LoginComponent, RegisterComponent],
+  declarations: [
+    AppComponent,
+    SidenavComponent,
+    NavbarComponent,
+    HomeComponent,
+    ClientsComponent,
+    InvoicesComponent,
+    UsersComponent,
+    LoginComponent,
+    RegisterComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

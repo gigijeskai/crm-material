@@ -64,6 +64,9 @@ se dovessero esserci ulteriori oggetti verranno specificati altri routes.
   console.log(users);
   res.send(users);
 });' di conseguenza sarà una chiamata di default
+
+POST
+
 7- in users.js per fare una chiamata post impostiamo la routes: "router.post("/", (req, res) => {
   const user = req.body;
 
@@ -72,5 +75,29 @@ se dovessero esserci ulteriori oggetti verranno specificati altri routes.
   res.send(`Utente con email ${user.email} è stato aggiunto con successo`);
 });", req.body permette di prendere i dati dalla richiesta, per gestire req.body
 nel file index.js aggiungendo 'app.use(express.json());' per poter accedere al body e poterlo usare.
+
+GET BY ID
+
+8- Per affibiare un id casuale univoco prima di utilizzare il db mongo è possibile utilizzare
+il pacchetto npm uuid, 'npm instal uuid' e si importa l'import in users.js che poi verrà richiamato
+9- in users.js 'router.post("/", (req, res) => {
+  const user = req.body;
+
+  users.push({ ...user, id: uuidv4() });
+
+  res.send(`Utente con email ${user.email} è stato aggiunto con successo`);
+});' in questo modo quando pusho un nuovo ogetto viene fatto lo spread operator
+che aggiunge un id univoco con uuid
+10- in users.js 'router.get("/:id", (req, res) => {
+  const { id } = req.params;
+
+  const userTrovato = users.find((user) => user.id == id);
+
+  res.send(userTrovato);
+});' i due punti prima dell'id stanno a indicare che il parametro è dinamico,
+11- const { id } = req.params questa riga è la distruzione dell'ogetto, fa in modo di creare un ogetto id prendendo
+l'ogetto req.params.id, sostanzialmente prende l'id da req.params.id
+
+
 
 

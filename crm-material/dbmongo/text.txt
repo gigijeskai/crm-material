@@ -1,0 +1,20 @@
+Creazione del progetto:
+
+1- dal terminale 'npm init -y' (crea un package-json).
+2- creare il file 'index.js' che sarà l'entry point dell'applicazione.
+3- dal terminale 'npm i --save express' per installare express
+4- in file.js importare express nell'index.js con 'import express from 'express'
+ oppure con 'const express = require('express)' nel caso si utilizzasse
+ la prima sintassi nel package.json sotto 'main' si aggiunge
+ '"type":"module"' per importare il modulo'
+5- in file.js creare una costante 'const app = express()' cosi richiamiamo la funzione
+ express con tutte le sue funzionalità.
+6- in file.js 'const PORT = 3000' per richiamare la porta
+7- in file.js 'app.listen(PORT, ()=>{'console.log('server running on port: ${PORT}')
+})' in questo modo richiamiamo la variabile app e la mettiamo in ascolto sulla
+porta dichiarata con una funzione
+8- da terminale 'npm i --save-dev nodemon' con questo comando si installa noodemon
+che serve ad aggiornare dinamicamente il server, per farlo funzionare in
+packahe.json impostare sotto 'type': ' "scripts": {
+    "start": "nodemon index.js"
+  },'

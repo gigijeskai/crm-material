@@ -17,4 +17,51 @@ porta dichiarata con una funzione
 che serve ad aggiornare dinamicamente il server, per farlo funzionare in
 packahe.json impostare sotto 'type': ' "scripts": {
     "start": "nodemon index.js"
-  },'
+  },' cosi facendo lanciando il comando da terminale 'npm start si avvierà il serve dinamico'
+
+  Creazione del primo routes:
+
+  1- in index.js 'app.get("/", (req, res) => {
+  console.log("chiamata GET homepage");
+
+  res.send("benvenuto nella homepage");
+});' questa è una chiamata con una 'richiesta (req)' e la 'risposta (res)',
+con questo codice se è tutto corretto alla porta definita riceveremo il messaggio
+della (res)
+2- per gestire tutti i routes creare una cartella routes e un file ad esempio
+'users.js" che gestirà le routes solo per gli oggetti users.
+3- nel file appena creato inserire il seguente codice iniziale:
+const router = express.Router();
+
+let users = [
+  {
+    nome: "Luca",
+    cognome: "Rossi",
+    email: "luca.rossi@gmail.it",
+  },
+  {
+    nome: "Marco",
+    cognome: "Verdi",
+    email: "marco.verdi@gmail.it",
+  },
+];
+
+router.get("/", (req, res) => {
+  console.log(users);
+  res.send(users);
+});
+
+export default router;
+questa è la base.
+4- in index.js aggiungere l'import del file:'import usersRoutes from "./routes/users.js";' che ho esportato con la riga:
+'export default router;'
+5- in index.js aggiungere 'app.use("/users", usersRoutes);' per dire all'applicazione che
+ogni volta che intercetta una chiamata per qualsiasi url che inizia per '/users'
+voglio che sia gestita dal router 'app.use("/users", usersRoutes);'
+se dovessero esserci ulteriori oggetti verranno specificati altri routes.
+6- 'app.use("/users", usersRoutes);' è l'entry point e in users.js è settatto:
+'router.get("/", (req, res) => {
+  console.log(users);
+  res.send(users);
+});' di conseguenza sarà una chiamata di defaul
+

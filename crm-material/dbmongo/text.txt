@@ -63,5 +63,14 @@ se dovessero esserci ulteriori oggetti verranno specificati altri routes.
 'router.get("/", (req, res) => {
   console.log(users);
   res.send(users);
-});' di conseguenza sarà una chiamata di defaul
+});' di conseguenza sarà una chiamata di default
+7- in users.js per fare una chiamata post impostiamo la routes: "router.post("/", (req, res) => {
+  const user = req.body;
+
+  users.push(user);
+
+  res.send(`Utente con email ${user.email} è stato aggiunto con successo`);
+});", req.body permette di prendere i dati dalla richiesta, per gestire req.body
+nel file index.js aggiungendo 'app.use(express.json());' per poter accedere al body e poterlo usare.
+
 

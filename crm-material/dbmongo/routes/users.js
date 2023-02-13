@@ -19,5 +19,12 @@ router.get("/", (req, res) => {
   console.log(users);
   res.send(users);
 });
+router.post("/", (req, res) => {
+  const user = req.body;
+
+  users.push(user);
+
+  res.send(`Utente con email ${user.email} è stato aggiunto con successo`);
+});
 
 export default router;

@@ -98,6 +98,39 @@ che aggiunge un id univoco con uuid
 11- const { id } = req.params questa riga è la distruzione dell'ogetto, fa in modo di creare un ogetto id prendendo
 l'ogetto req.params.id, sostanzialmente prende l'id da req.params.id
 
+DELETE
+
+12- in users.js il metodo delete: router.delete("/:id", (req, res) => {
+  const { id } = req.params;
+  users = users.filter((user) => user.id != id);
+  res.send(`Utente con id ${id} è stato eliminato`);
+}); consiste nel filtrare l'array in uno nuovo eliminando l'elemento con'id selezionato
+
+PATCH
+
+13- in users.js 'router.patch("/:id", (req, res) => {
+  const { id } = req.params;
+  const { nome, cognome, email } = req.body;
+
+  const userTrovato = users.find((user) => user.id == id);
+
+  if (nome) userTrovato.nome = nome;
+  if (cognome) userTrovato.cognome = cognome;
+  if (email) userTrovato.email = email;
+
+  res.send(`utente con id ${id} è stato modificato con successo`);
+});' per modificare un ogetto in base all'id quindi prendiamo il parametro dal body,
+i valori da cambiare con il body e utilizzo le if perchè il dato che voglio cambiare potrebbe non esistere.
+in sostanza prendo l'id dell'ogetto da modificare 'const { id } = req.params;'
+facendo cosi passo dei dati che poi scompatto 'const { nome, cognome, email } = req.body;' in
+diverse costanti che potrebbero esistere e non esistere quindi utilizzerò delle if,
+se la condizione è vera l'utente verra modificato
+
+CONTROLLER
+
+
+
+
 
 
 

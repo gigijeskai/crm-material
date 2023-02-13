@@ -1,28 +1,25 @@
 import express from "express";
-import { v4 as uuidv4 } from "uuid";
+
+import nodemon from "nodemon";
+
+import {
+  insertUser,
+  getAllUsers,
+  getUserById,
+  deleteUser,
+  updateUser,
+} from "../controllers/users.js";
 
 const router = express.Router();
 
-let users = [];
+router.get("/", getAllUsers);
 
-router.get("/", (req, res) => {
-  console.log(users);
-  res.send(users);
-});
-router.post("/", (req, res) => {
-  const user = req.body;
+router.post("/", insertUser);
 
-  users.push({ ...user, id: uuidv4() });
+router.get("/:id", getUserById);
 
-  res.send(`Utente con email ${user.email} è stato aggiunto con successo`);
-});
+router.delete("/:id", deleteUser);
 
-router.get("/:id", (req, res) => {
-  const { id } = req.params;
-
-  const userTrovato = users.find((user) => user.id == id);
-
-  res.send(userTrovato);
-});
+router.patch("/:id", updateUser);
 
 export default router;

@@ -128,7 +128,12 @@ se la condizione è vera l'utente verra modificato
 
 CONTROLLER
 
-
+14- i routes si occupano di gestire la chiamata in entrata, di identificarla,
+i controller invece gestiscono le funzioni della chiamata
+15- si crea una cartella controllers e al suo interno un file js dove verranno
+inserite le funzioni delle chiamate
+16- per importare le funzioni delle chiamate che metto nei controllers devo esportarle
+per poi successivamente importarle nelle routes dove verranno richiamate nelle routes
 
 
 
